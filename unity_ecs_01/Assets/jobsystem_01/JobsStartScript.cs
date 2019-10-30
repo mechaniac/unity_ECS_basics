@@ -66,6 +66,8 @@ public class JobsStartScript : MonoBehaviour
             positionArray.Dispose();
             moveYArray.Dispose();
         }
+
+        
         else { 
         foreach(CSprite csprite in cSpriteList)
         {
@@ -152,6 +154,7 @@ public struct ReallyToughParallelJob : IJobParallelFor
     [ReadOnly] public float deltaTime;  //doesnt need readonly (use only on native fields)
     public void Execute(int index)
     {
+
         positionArray[index] += new float3(0, moveYArray[index] * deltaTime,0f);
 
         if (positionArray[index].y > 5f)
